@@ -2,8 +2,11 @@
 from bank import Bank
 
 # initialize the object
-user1 = Bank("John", "Smith", 12345678, 654321, 321456789, 0)
+user1 = Bank("John", "Smith", "12345678", "07746417399", "654321", "321456789", 200)
 
 user_name1 = Bank.get_user_name(user1)
 print(user_name1)
+print(Bank.login(user1))
 Bank.get_balance(user1)
+print("You make a transfer 50 pounds")
+print("The balance of the %s is" % user1.account_number, Bank.transfer(user1, 50))
