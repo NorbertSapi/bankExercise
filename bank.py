@@ -31,9 +31,13 @@ class Bank(Person):
 
     # transfer money method
     def transfer(self, number):
-        pass
         if self.balance < number:
             print("You do not have enough money to transfer, please deposit some money.")
         elif self.balance >= number:
             self.balance = self.balance - number
             return self.balance
+
+    # block a bank card
+    def block_card(self):
+        pass
+        return "Your bank card: card number %s is blocked." % self.bank_card
