@@ -11,3 +11,8 @@ Bank.get_balance(user1)
 print("'You make a 50 pounds transfer.'")
 print("The balance of the %s is" % user1.account_number, Bank.transfer(user1, 50))
 print(Bank.block_card(user1))
+print(Bank.make_deposit(user1, 300))
+print(Bank.withdraw_money(user1, 120))
+
+if __name__ == "__main__":
+    print("This is main: %s." % __name__)

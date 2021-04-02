@@ -2,6 +2,7 @@
 
 class Person:
     pass
+    print("This is a message from the %s class." % __name__)
 
     def __init__(self, first_name, second_name, account_number, mobile):
         self.first_name = first_name

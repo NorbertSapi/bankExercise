@@ -2,14 +2,23 @@
 # Properties:
 #   username, account number(s), bank card(s), balance, credit
 # Methods:
-#   login, deposit, withdraw, transfer, block_bank_card, check_balance
+#   login, deposit, withdraw, transfer, block_card, get_balance
 from Person.person import Person
+
+
+# get_help
+def get_help():
+    issue = input("Do you have any issue?")
+    if issue is "Yes":
+        print("Please call the helpline: 07827362.")
+    else:
+        print("Thanks for your feedback.")
 
 
 class Bank(Person):
     pass
 
-    print("This is the", __name__, "class.")
+    print("This is a message from the %s class." % __name__)
 
     def __init__(self, first_name, second_name, account_number, mobile, sort_code, bank_card, balance):
         super().__init__(first_name, second_name, account_number, mobile)
@@ -27,17 +36,28 @@ class Bank(Person):
 
     # get balance method
     def get_balance(self):
-        print("The balance of the %s account is" % self.account_number, self.balance)
+        return "The balance of the %s account is" % self.account_number,  self.balance
 
     # transfer money method
-    def transfer(self, number):
-        if self.balance < number:
+    def transfer(self, amount):
+        if self.balance < amount:
             print("You do not have enough money to transfer, please deposit some money.")
-        elif self.balance >= number:
-            self.balance = self.balance - number
+        elif self.balance >= amount:
+            self.balance = self.balance - amount
             return self.balance
 
     # block a bank card
     def block_card(self):
-        pass
         return "Your bank card: card number %s is blocked." % self.bank_card
+
+    # make a deposit account
+    def make_deposit(self, amount):
+        print("Would you like to deposit %s pounds to your account?" % amount)
+        self.balance += amount
+        return self.get_balance()
+
+    # withdraw money
+    def withdraw_money(self, amount):
+        print("Would you like to withdraw %s pounds from your account?" % amount)
+        self.balance -= amount
+        return self.get_balance()
